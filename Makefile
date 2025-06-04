@@ -14,5 +14,8 @@ $(TARGET): $(SRC)
 install: $(TARGET)
 	install -Dm755 $(TARGET) $(DESTDIR)$(BINDIR)/$(TARGET)
 
+uninstall:
+	rm -f $(DESTDIR)$(BINDIR)/$(TARGET)
+
 clean:
 	rm -f $(TARGET)
