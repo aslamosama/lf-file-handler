@@ -21,7 +21,7 @@ void uri_decode(char *str) {
 }
 
 static void show_items(DBusMessage *message) {
-  // set TERMINAL to configure the terminal in which lf is opened
+  // set TERMINAL to configure the terminal in which yazi is opened
   const char *term = getenv("TERMINAL");
   DBusMessageIter iter;
   dbus_message_iter_init(message, &iter);
@@ -34,7 +34,7 @@ static void show_items(DBusMessage *message) {
     char *decoded = strdup(item);
     uri_decode(decoded);
     char *cmd;
-    asprintf(&cmd, "%s lf '%s' &", term, decoded);
+    asprintf(&cmd, "%s yazi '%s' &", term, decoded);
     system(cmd);
     free(cmd);
     free(decoded);
